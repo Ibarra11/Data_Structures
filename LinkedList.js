@@ -121,7 +121,7 @@ class LinkedList{
 
   isHead(val){
     return this.head.data === val;
-  }
+}
 
 }
 
