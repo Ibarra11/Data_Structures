@@ -80,6 +80,8 @@ class LinkedList{
             this.size--;
             return removedTail;
           }
+          previous = current;
+          current = current.next;
         }
 
       }
