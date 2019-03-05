@@ -20,9 +20,17 @@ class LinkedList{
   }
 
   remove(val){
-    if(this.head.data === val){
+    if(!this.isEmpty()){
+      if(this.head.data === val){
      let removedNode = this.head;
-      this.head = this.head.next;
+      // So if the there is only one node in the Linked List and it is being removed than the head and tail are reset to their default state.  
+     if(this.size === 1){
+       this.head = null;
+       this.tail = null;
+     }
+     else{
+       this.head = this.head.next;
+     }
       this.size--;
       return removedNode;
     }
@@ -48,6 +56,11 @@ class LinkedList{
       }
       return "Value not found";
     }
+    }
+    else{
+      return "Linked list is empty";
+    }
+    
   }
 
   isEmpty(){
