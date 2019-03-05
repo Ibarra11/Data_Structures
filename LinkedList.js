@@ -7,7 +7,8 @@ class LinkedList{
 
   insert(val){
     let newNode = new Node(val);
-   if(!this.head.data){
+    // If the head is null then we insert the node at the head
+   if(!this.head){
      this.head = newNode;
      this.tail = this.head;
    }
@@ -64,6 +65,7 @@ class LinkedList{
         removedTail = this.head;
         this.head = null;
         this.tail = null;
+        this.size--;
         return removedTail;
       }
       else{
@@ -75,6 +77,7 @@ class LinkedList{
             removedTail = current;
             previous.next = null;
             this.tail = previous;
+            this.size--;
             return removedTail;
           }
         }
@@ -113,71 +116,3 @@ class Node{
     this.next = null;
   }
 }
-
-/* 
-  add(5);
-  {
-    head: {data:5, next: null}
-    tail: {data:5, next: null}
-  }
-*/
-
-let ll = new LinkedList(5);
-ll.insert(5);
-console.log(ll);
-
-/* 
-  add(10);
-  {
-    head: {data:5, next: {data:5, next: null}}
-    tail: {data:10, next: null}
-  }
-*/
-ll.insert(10);
-console.log(ll);
-
-/* 
-  add(15);
-  {
-    head: {data:5, next: {data:10, next: {data:15, next: null}}}
-    tail: {data:15, next: null}
-  }
-*/
-ll.insert(15);
-console.log(ll);
-
-ll.isTail(6);
-
-
-
-// /* 
-//   remove(5);
-//   {
-//     head: {data:10, next: {data:15, next: null}}
-//     tail: {data:15, next: null}
-//   }
-// */
-// ll.remove(5);
-// console.log(ll);
-
-// /* 
-//   remove(15);
-//   {
-//     head: {data:10, next: null}
-//     tail: {data:10, next: null}
-//   }
-// */
-// ll.remove(15);
-// console.log(ll);
-
-
-/* 
-  remove(10);
-  {
-    head: {data:5, next: {data:15, next: null}}
-    tail: {data:15, next: null}
-  }
-*/
-// ll.remove(12);
-// console.log(ll);
-
