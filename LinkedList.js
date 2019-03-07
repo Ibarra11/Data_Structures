@@ -7,8 +7,8 @@ class LinkedList{
 
   insert(val){
     let newNode = new Node(val);
-    // If the head is null then we insert the node at the head
-   if(!this.head){
+    // If the linked list is empty then I just insert at the head
+   if(this.isEmpty()){
      this.head = newNode;
      this.tail = this.head;
    }
@@ -60,21 +60,21 @@ class LinkedList{
     else{
       return "Linked list is empty";
     }
-    
   }
 
+ 
   isEmpty(){
     return this.size === 0;
   }
 
   removeTail(){
-    let current = this.head;
-    let previous;
-    let removedTail;
     // if only one node is in the LL
     if(!this.isEmpty()){
+      let current = this.head;
+      let previous;
+      let removedTail;
       // if there is only one node than the tail is the head
-      if(current.next === null){
+      if(this.size === 1){
         removedTail = this.head;
         this.head = null;
         this.tail = null;
@@ -121,7 +121,7 @@ class LinkedList{
 
   isHead(val){
     return this.head.data === val;
-}
+  }
 
 }
 
@@ -131,3 +131,14 @@ class Node{
     this.next = null;
   }
 }
+
+
+let ll = new LinkedList();
+
+ll.insert(10);
+ll.insert(15);
+ll.insert(5);
+
+console.log(ll)
+
+
